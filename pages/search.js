@@ -3,9 +3,9 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { format } from 'date-fns'
 import InfoCard from '../components/InfoCard'
+import Map from '../components/Mapbox'
 
 function Search({ searchResults }) {
-  console.log(searchResults)
   const router = useRouter()
   const { location, startDate, endDate, numberOfGuests } = router.query
   const formatedStartDate = format(new Date(startDate), 'dd MMMM yy')
@@ -51,6 +51,10 @@ function Search({ searchResults }) {
               )
             )}
           </div>
+        </section>
+
+        <section className="hidden min-w-[600px] cursor-pointer xl:inline-flex">
+          <Map searchResults={searchResults} />
         </section>
       </main>
       <Footer />
